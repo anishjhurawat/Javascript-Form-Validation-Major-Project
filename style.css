@@ -1,0 +1,353 @@
+/* Importing Google Font Roboto Mono */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* Root variables for colors and font sizes */
+:root {
+    --main-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --lighter-color: #e0e0e7;
+    --light-color: #b0b0c0;
+    --dark-color: #52505e;
+
+    --font-small: 14px;
+    --font-big: 20px;
+}
+
+/* Global reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Smooth scrolling for HTML */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body styles */
+body {
+    font-family: "Roboto Mono", monospace;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--dark-color);
+    /* Background image */
+    background-image: url(Assets/bg.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Anchor tag styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove default list styling */
+ul {
+    list-style: none;
+}
+
+/* Heading styles */
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 0.5em;
+}
+
+/* Specific styles for h2 */
+h2 {
+    color: #6c5ce7;
+}
+
+/* Image styles */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/* Container styles */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+/* Form box container */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5em;
+    border: 4px solid;
+    border-image: linear-gradient(to right, rgb(30, 139, 0), rgb(204, 117, 50)) 1;
+    background: transparent;
+}
+
+/* Progress bar styles */
+.form-box .progress {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    margin-top: 5em;
+    display: block;
+    background: transparent;
+}
+
+/* Logo styles */
+.logo {
+    font-size: 1.75em;
+    font-weight: 800;
+    color: var(--dark-color);
+    padding: 40px 48px;
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+/* Highlight span color within logo */
+.logo span {
+    color: var(--main-color);
+}
+
+/* Progress steps styles */
+.progress ul.progress-steps {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.progress ul.progress-steps li {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2em;
+}
+
+.progress ul.progress-steps li > span {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1em;
+    border-radius: 50%;
+    background-color: var(--lighter-color);
+    z-index: 1;
+}
+
+/* Active step indicator */
+.progress ul.progress-steps li.active > span {
+    color: white;
+    background-color: var(--main-color);
+    border: 4px solid var(--secondary-color);
+    z-index: 1;
+}
+
+/* Paragraph styles within progress steps */
+.progress ul.progress-steps li p {
+    color: var(--light-color);
+    font-size: var(--font-small);
+}
+
+/* Absolute positioning for step labels */
+.progress ul li p {
+    position: absolute;
+    top: -2em;
+    font-size: 12px;
+}
+
+/* Form styling */
+.form-box form {
+    width: 100%;
+    padding: 3em 1em;
+    border-radius: 30px 30px 15px 15px;
+}
+
+/* Individual form section */
+form > div {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Paragraph styles within form sections */
+form > div p {
+    color: var(--light-color);
+    margin-bottom: 2em;
+}
+
+/* Form input styles */
+form > div > div:not(.checkbox) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+form input {
+    height: 40px;
+    padding: 0 1em;
+    border-radius: 7px;
+    outline-color: var(--secondary-color);
+    border: 1px solid var(--lighter-color);
+    background: transparent;
+}
+
+/* Label styles */
+form label {
+    font-size: var(--font-small);
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+/* Checkbox input styles */
+form .checkbox input {
+    height: auto;
+}
+
+/* Hide inactive form sections */
+form > div:not(.btn-group) {
+    display: none;
+    animation: fadeIn .6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+    -webkit-animation: fadeIn .6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+        -webkit-transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+}
+
+/* Display active form section */
+form > div.active {
+    display: block;
+}
+
+/* Button group styles */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    margin-top: 2em;
+}
+
+/* Button styles */
+.btn-group [class*="btn-"] {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 1em 2em;
+    border: 4px solid var(--secondary-color);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color .3s, border-color .3s ease-out;
+    -webkit-transition: background-color .3s, border-color .3s ease-out;
+}
+
+/* Disabled button styles */
+.btn-group [class*="btn-"]:disabled {
+    background-color: var(--lighter-color);
+    border-color: var(--lighter-color);
+    cursor: text;
+}
+
+/* Hover styles for buttons */
+.btn-group [class*="btn-"]:hover:not(:disabled) {
+    background-color: var(--dark-color);
+    border-color: var(--light-color);
+}
+
+/* Hide and display buttons based on form section */
+.btn-group .btn-submit,
+.form-three.active ~ .btn-group .btn-next,
+.form-one.active ~ .btn-group .btn-prev {
+    display: none;
+}
+
+/* Display submit button on form-three active */
+.form-three.active ~ .btn-group .btn-submit {
+    display: block;
+}
+
+/* Adjust button alignment for form-two and form-three */
+.form-two.active ~ .btn-group,
+.form-three.active ~ .btn-group {
+    justify-content: space-between;
+}
+
+/* Placeholder text styles */
+::placeholder {
+    color: var(--light-color);
+}
+
+/* Invalid input border color */
+.is-invalid {
+    border-color: red;
+}
+
+/* Warning message styles */
+.warning-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Media query for tablet and larger screens */
+@media screen and (min-width: 768px) {
+    /* Adjust form box layout for larger screens */
+    .form-box {
+        flex-direction: row;
+    }
+
+    /* Adjust progress bar layout */
+    .form-box .progress {
+        flex: 1 0 35%;
+        min-width: 300px;
+        padding: 3em;
+    }
+
+    /* Margin adjustment for logo */
+    .logo {
+        margin: -48px -48px 48px;
+    }
+
+    /* Vertical progress steps for larger screens */
+    .progress ul.progress-steps {
+        flex-direction: column;
+    }
+
+    /* Vertical line between progress steps */
+    .progress ul.progress-steps li:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 30px;
+        width: 2px;
+        height: 65px;
+        background-color: var(--lighter-color);
+    }
+
+    /* Adjust form padding and border radius */
+    .form-box form {
+        padding: 3em;
+        border-radius: 0 15px 15px 0;
+    }
+
+    /* Position adjustment for progress step labels */
+    .progress ul li p {
+        position: relative;
+        top: auto;
+        font-size: inherit;
+        margin-top: 1.5em;
+    }
+}
